@@ -34,12 +34,12 @@ class Background extends StatelessWidget {
             child: ConstrainedBox(
 
               constraints: BoxConstraints(
-                  minHeight: 900, minWidth: 860
+                  minHeight: 900, minWidth: 1400, maxWidth: 1800
               ),
               child: Container(
                 color: Colors.blueGrey,
-                height: MediaQuery.of(context).size.height * 0.9,
-                width: MediaQuery.of(context).size.width * 0.45,
+                height: MediaQuery.of(context).size.height * 0.95,
+                width: MediaQuery.of(context).size.width * 0.6,
                 child: Container(
                   color: Colors.white70,
                   child: widget,

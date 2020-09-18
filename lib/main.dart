@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:league_team_analytics/view/pages/home.dart';
+import 'package:league_team_analytics/app/view/pages/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,16 +10,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'League of Teams',
       theme: ThemeData(
-
         fontFamily: "quicksand",
         primarySwatch: Colors.teal,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/',
       routes: <String, WidgetBuilder> {
-        '/': (BuildContext context) => Home(),
+        // '/': (BuildContext context) => Home(),
       },
       home: Home(),
     );
