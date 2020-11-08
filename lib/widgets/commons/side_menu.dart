@@ -14,7 +14,7 @@ class SideMenu extends StatelessWidget {
         children: [
           menuListTile(context, "Home", Icon(Icons.house), ModalRoute.withName('/')),
           Divider(),
-          menuListTile(context, "Pick a Comp", Image.asset('images/icons/pick-a-comp.png', height: 24,), ModalRoute.withName('/pick-a-comp'))
+          menuListTile(context, "Pick a Comp", Image.network('https://drive.google.com/file/d/1xvYHOBG2Nv-kv1tpbl8Bvi-VkLk2IiIg&export=download', height: 24,), ModalRoute.withName('/pick-a-comp'))
         ],
       ),
     );
