@@ -1,4 +1,6 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
+import 'package:league_team_analytics/bloc/statistics_bloc.dart';
 import 'package:league_team_analytics/configuration/constants.dart';
 import 'package:league_team_analytics/screens/home/homePage.dart';
 
@@ -14,10 +16,13 @@ class MainContainer extends StatelessWidget {
     final mainContainer = Scaffold(
       appBar: AppBar(
         title: MaterialButton(
-          onPressed: () => Navigator.pushReplacement(context, PageRouteBuilder(
+          onPressed: () {
+
+            return Navigator.pushReplacement(context, PageRouteBuilder(
             pageBuilder: (_, __, ___) => HomePage(),
             transitionDuration: Duration(seconds: 0),
-          ),),
+          ),);
+          },
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

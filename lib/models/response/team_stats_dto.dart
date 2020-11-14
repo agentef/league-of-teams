@@ -7,6 +7,7 @@ class TeamStatsDTO {
   List<CompStats> compStats;
   List<SummonerDTO> summoners;
   int totalGames;
+  int currentGames;
   double totalWinRate;
   int totalWins;
   int totalLoses;
@@ -17,6 +18,7 @@ class TeamStatsDTO {
         firstGameDate = DateTime.utc(json['firstGameDate'][0], json['firstGameDate'][1], json['firstGameDate'][2], json['firstGameDate'][3], json['firstGameDate'][4], json['firstGameDate'][5] ),
         lastGameDate = DateTime.utc(json['lastGameDate'][0], json['lastGameDate'][1], json['lastGameDate'][2], json['lastGameDate'][3], json['lastGameDate'][4], json['lastGameDate'][5] ),
         totalGames = json['totalGames'],
+        currentGames = json['currentGames'],
         totalWinRate = json['totalWinRate'],
         totalWins = json['totalWins'],
         totalLoses = json['totalLoses'];
@@ -32,6 +34,8 @@ class SummonerDTO {
   int summonerLevel;
 
   SummonerDTO(this.accountId, this.profileIconId, this.revisionDate, this.name, this.id, this.puuid, this.summonerLevel);
+
+  Map<String, dynamic> toJson() => {'accountId': accountId, 'profileIconId': profileIconId, 'revisionDate': revisionDate, 'name': name, 'id': id, 'puuid': puuid, 'summonerLevel': summonerLevel};
 
   SummonerDTO.fromJson(Map<String, dynamic> json)
       : accountId = json['accountId'],

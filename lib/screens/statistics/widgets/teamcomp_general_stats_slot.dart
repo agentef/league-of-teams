@@ -11,6 +11,7 @@ class TeamCompGeneralStatsSlot extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
         width: 142,
+        height: 140,
         child: Container(
           padding: const EdgeInsets.only(left: 8.0, right: 16.0),
 

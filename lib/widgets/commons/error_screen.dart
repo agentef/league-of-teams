@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:league_team_analytics/widgets/commons/main_container.dart';
 import 'package:league_team_analytics/widgets/commons/text_style/default_header.dart';
 
 class ErrorScreen extends StatefulWidget {

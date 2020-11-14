@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:league_team_analytics/bloc_services/storage_service.dart';
 import 'package:league_team_analytics/screens/statistics/statisticsPage.dart';
-import 'file:///E:/Dev/League%20Team%20Analytics/league_team_analytics/lib/bloc_services/storage_service.dart';
 import 'package:league_team_analytics/widgets/commons/main_container.dart';
 import 'package:league_team_analytics/widgets/commons/text_style/default_header.dart';
 import 'package:league_team_analytics/widgets/commons/text_style/default_text_field.dart';
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                   return null;
                 },
                 controller: _summonersController,
-                style: TextFieldStyles.DefaultTextFieldStyle,
+                style: TextFieldStyles.defaultTextFieldStyle,
                 textAlign: TextAlign.center,
                 focusNode: _summonerNamesFocusNode,
                 onFieldSubmitted: (value) {
