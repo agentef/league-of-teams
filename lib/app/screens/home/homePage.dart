@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:league_team_analytics/app/commons/controller/preferences_controller.dart';
+import 'package:league_team_analytics/app/commons/translations/messages_enum.dart';
+import 'package:league_team_analytics/app/commons/widgets/main_container.dart';
+import 'package:league_team_analytics/app/commons/widgets/text_style/default_header.dart';
+import 'package:league_team_analytics/app/commons/widgets/text_style/default_text_field.dart';
+import 'package:league_team_analytics/app/commons/widgets/text_style/image.dart';
 import 'package:league_team_analytics/bloc_services/storage_service.dart';
-import 'package:league_team_analytics/screens/statistics/statisticsPage.dart';
-import 'package:league_team_analytics/widgets/commons/main_container.dart';
-import 'package:league_team_analytics/widgets/commons/text_style/default_header.dart';
-import 'package:league_team_analytics/widgets/commons/text_style/default_text_field.dart';
-import 'package:league_team_analytics/widgets/commons/text_style/image.dart';
 
 class HomePage extends StatelessWidget {
 
   final _formKey = GlobalKey<FormState>();
   final _summonerNamesFocusNode = FocusNode();
   final _storageService = StorageService();
-
+  final _preferencesController = PreferencesController();
   final _summonersController = TextEditingController();
 
   @override
@@ -38,7 +40,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 80),
-            Text('Insira o nome dos invocadores separados por vírgula', style: TextStyles.DefaultHeaderTextStyle, textAlign: TextAlign.center,),
+            Text(MessagesEnum.insert_names.get.tr, style: TextStyles.DefaultHeaderTextStyle, textAlign: TextAlign.center,),
             Container(
               margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
               padding: EdgeInsets.all(12),
@@ -53,12 +55,7 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center,
                 focusNode: _summonerNamesFocusNode,
                 onFieldSubmitted: (value) {
-                  if (_formKey.currentState.validate()) {
-                    _storageService.saveSummoners(value);
-                    Navigator.pushReplacement(context, PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => StatisticsPage(),
-                        transitionDuration: Duration(seconds: 0)));
-                  }
+                  if (_formKey.currentState.validate()) Get.offNamed('/stats?summoners=${_summonersController.value.text}&region=${_preferencesController.region.value}&matches=');
                 }
               ),
             ),
@@ -70,12 +67,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.teal,
                 child: Text("Go", style: TextStyle(color: Colors.white)),
                 onPressed: () {
-                  if (_formKey.currentState.validate()) {
-                    _storageService.saveSummoners(_summonersController.text);
-                    Navigator.pushReplacement(context, PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => StatisticsPage(),
-                        transitionDuration: Duration(seconds: 0)));
-                  }
+                  if (_formKey.currentState.validate()) Get.offNamed('/stats?summoners=${_summonersController.value.text}&region=${_preferencesController.region.value}&matches=}');
                 }
               ),
             )

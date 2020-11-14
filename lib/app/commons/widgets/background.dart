@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class Background extends StatelessWidget {
-  Background(this.view);
+  Background(this.viewContainer);
 
-  final Widget view;
+  final Widget viewContainer;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class Background extends StatelessWidget {
                 height: height * 0.95,
                 width: width * 0.6,
                 child: Container(
-                  child: view,
+                  child: viewContainer,
                 ),
               ),
             ),

@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:league_team_analytics/configuration/constants.dart';
@@ -59,7 +60,10 @@ class StatisticsService {
       return matchListDto;
     } on DioError catch (e) {
       log('m=getCompsBySummonerNames, stage=error, summoners=$summoners, params=$params, message=${e.response.statusCode}: ${e.error}');
-      throw e;
+      sleep(Duration(seconds: 10));
+      log('retrying...');
+      return getMatchListBySummonerNames(summoners, params);
+      // throw e;
     }
   }
 
@@ -82,7 +86,9 @@ class StatisticsService {
       return teamStatsDTO;
     } on DioError catch (e) {
       log('m=getCompsBySummonerNames, stage=error, summoners=$summonerList, params=$params, message=${e.error}');
-      throw e;
+      sleep(Duration(seconds: 10));
+      log('retrying...');
+      getCompsByMatchList(request, params);
     }
   }
 }

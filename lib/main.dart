@@ -1,7 +1,11 @@
-import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
-import 'package:league_team_analytics/bloc/statistics_bloc.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:league_team_analytics/configuration/constants.dart';
+
+import 'app/commons/translations/messages.dart';
+import 'app/screens/home/homePage.dart';
+import 'app/screens/statistics/statisticsPage.dart';
 import 'configuration/configuration.dart';
 
 void main() {
@@ -9,22 +13,25 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      blocs: [Bloc((i) => StatisticsBloc())],
-      child: MaterialApp(
-        title: 'League of Teams',
-        theme: ThemeData(
-          fontFamily: Fonts.QUICKSAND,
-          primarySwatch: Colors.teal,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        initialRoute: '/',
-        routes: Configuration.routes,
-        // home: StatisticsPage(Mock.statsMock),
+    return GetMaterialApp(
+      translations: Messages(),
+      locale: Locale('pt', 'BR'),
+      fallbackLocale: Locale('en', 'US'),
+      title: 'League of Teams',
+      theme: ThemeData(
+        fontFamily: Fonts.QUICKSAND,
+        primarySwatch: Colors.teal,
+        primaryIconTheme: IconThemeData(color: Colors.white, size: 48),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      getPages: [
+        GetPage(name: '/', page: () => HomePage()),
+        GetPage(name: '/stats', page: () => StatisticsPage())
+      ],
+      initialRoute: '/',
+      routes: Configuration.routes,
     );
   }
 }

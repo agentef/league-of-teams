@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:league_team_analytics/models/response/team_stats_dto.dart';
-import 'package:league_team_analytics/screens/statistics/widgets/teamcomp_slot.dart';
 
+import 'teamcomp_slot.dart';
 import 'teamcomp_stats_slot.dart';
 
 class TeamCompCell extends StatelessWidget {
