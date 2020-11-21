@@ -86,6 +86,7 @@ class HomePage extends StatelessWidget {
                               decoration: InputDecoration.collapsed(hintText: '30'),
                               inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                               keyboardType: TextInputType.number,
+                              onFieldSubmitted: searchMatches(),
                             ),
                           ),
                           Text(MessagesEnum.days_filter_message2.get.tr, style: TextStyles.DefaultHeaderTextStyle,)
