@@ -15,7 +15,7 @@ class TeamCompStatsSlot extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.only(right: 8),
-      height: 72,
+      height: 76,
       width: 128,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

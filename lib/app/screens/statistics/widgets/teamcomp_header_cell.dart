@@ -1,40 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:league_team_analytics/app/commons/colors/colors.dart';
 import 'package:league_team_analytics/models/response/team_stats_dto.dart';
 
-import 'statistics_page_text_styles.dart';
+import 'teamcomp_general_stats_slot.dart';
+import 'teamcomp_header_cell_slot.dart';
 
 class TeamCompHeaderCell extends StatelessWidget {
+  final TeamStatsDTO dto;
+  final List<TeamCompHeaderCellSlot> summonerCellSlots;
 
-  final SummonerDTO _summonerDTO;
-
-
-  TeamCompHeaderCell(this._summonerDTO);
+  TeamCompHeaderCell(this.dto, this.summonerCellSlots);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 64,
-      width: 180,
-      child: Row(crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Container(
-            child: Image.network(
-              'http://ddragon.leagueoflegends.com/cdn/10.22.1/img/profileicon/${_summonerDTO.profileIconId}.png',
-              height: 48,
-              width: 48,
-            ),
-          ),
-          SizedBox(width: 4),
-          Container(
-            padding: EdgeInsets.only(bottom: 8),
-            child: Text(
-              _summonerDTO.name,
-              style: StatisticsPageTextStyles.summonerNameTextStyle,
-            ),
-          )
-        ],
-      ),
-
-    );
+      margin: EdgeInsets.all(8),
+        decoration: ShapeDecoration(
+            color: CustomColors.appColorScheme.surface,
+            shape: RoundedRectangleBorder(
+                side: BorderSide(width: 2, color: CustomColors.appColorScheme.primary), borderRadius: BorderRadius.circular(8))),
+        child: Row(children: [dto == null ? SizedBox(height: 140, width: 140) : TeamCompGeneralStatsSlot(dto)] + summonerCellSlots));
   }
 }

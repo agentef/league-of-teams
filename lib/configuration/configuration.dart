@@ -7,4 +7,5 @@ class Configuration {
     '/': (BuildContext context) => HomePage(),
     '/comps' : (BuildContext context) => StatisticsPage()
   };
+
 }

@@ -5,63 +5,61 @@ import 'statistics_page_text_styles.dart';
 
 class TeamCompSlot extends StatelessWidget {
   final SummonerStats _summonerInfo;
+  final String _version;
 
 
-
-  TeamCompSlot(this._summonerInfo);
+  TeamCompSlot(this._summonerInfo, this._version);
 
   @override
   Widget build(BuildContext context) {
-    if (_summonerInfo == null) return SizedBox(width: 180);
+    if (_summonerInfo == null) return Container();
     return Container(
-      decoration: BoxDecoration(border: Border(right: BorderSide(width: 0.5, color: Colors.black87),left: BorderSide(width: 0.5, color: Colors.black87)), ),
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(border: Border(left: BorderSide(width: 0.5, color: Colors.white))),
       width: 180,
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(crossAxisAlignment: CrossAxisAlignment.end,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: EdgeInsets.only(left: 8),
-                child: Image.network(
-                  'http://ddragon.leagueoflegends.com/cdn/10.22.1/img/champion/${_summonerInfo.championName}.png',
-                  height: 48,
-                  width: 48,
-                ),
+              Image.network(
+                'http://ddragon.leagueoflegends.com/cdn/$_version/img/champion/${_summonerInfo.championName}.png',
+                height: 48,
+                width: 48,
               ),
-              SizedBox(width: 10,),
-              Container(
-                padding: EdgeInsets.only(bottom: 12),
-                child: Text(
-                  _summonerInfo.championName,
-                  style: StatisticsPageTextStyles.championNameTextStyle,
-                ),
-              )
+              Text(_summonerInfo.championName, style: StatisticsPageTextStyles.championNameTextStyle)
             ],
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            width: 64,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                Row(
+                  mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("K", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
                     Text("${_summonerInfo.kills.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
                   ]),
-                Column(
+                Row(
+                  mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("D", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
                     Text("${_summonerInfo.deaths.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
                   ]),
-                Column(
+                Row(
+                  mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("A", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
                     Text("${_summonerInfo.assists.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
                   ]),
-                Column(
+                Row(
+                  mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("cs", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:league_team_analytics/app/commons/colors/colors.dart';
 import 'package:league_team_analytics/configuration/constants.dart';
 
 import 'app/commons/translations/messages.dart';
@@ -20,12 +21,7 @@ class MyApp extends StatelessWidget {
       locale: Locale('pt', 'BR'),
       fallbackLocale: Locale('en', 'US'),
       title: 'League of Teams',
-      theme: ThemeData(
-        fontFamily: Fonts.QUICKSAND,
-        primarySwatch: Colors.teal,
-        primaryIconTheme: IconThemeData(color: Colors.white, size: 48),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: ThemeData.from(colorScheme: CustomColors.appColorScheme, textTheme: TextTheme().apply(fontFamily: Fonts.QUICKSAND)),
       getPages: [
         GetPage(name: '/', page: () => HomePage()),
         GetPage(name: '/stats', page: () => StatisticsPage())

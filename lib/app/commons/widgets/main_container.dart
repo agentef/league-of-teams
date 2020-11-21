@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:league_team_analytics/app/commons/colors/colors.dart';
 import 'package:league_team_analytics/configuration/constants.dart';
 
 import 'background.dart';
@@ -19,7 +20,7 @@ class MainContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(padding: const EdgeInsets.all(8.0), child: Image.network(Constants.logoUrl, width: 40, height: 40)),
-              Text(Constants.TITLE, style: TextStyle(color: Colors.white70, fontSize: 24, fontWeight: FontWeight.w500))
+              Text(Constants.TITLE, style: TextStyle(color: CustomColors.antiFlashWhite, fontSize: 24, fontWeight: FontWeight.w500))
             ],
           ),
         ),
@@ -27,12 +28,7 @@ class MainContainer extends StatelessWidget {
       body: Row(
         children: [
           // SideMenu(),
-          Expanded(
-            child: Container(
-              color: Colors.black12,
-              child: widget,
-            ),
-          )
+          Expanded(child: widget)
         ],
       ),
     );

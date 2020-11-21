@@ -11,11 +11,10 @@ class TeamCompGeneralStatsSlot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: 142,
+        width: 140,
         height: 140,
         child: Container(
           padding: const EdgeInsets.only(left: 8.0, right: 16.0),
-
           child: Column(
             children: [
               SizedBox(height: 8),
@@ -24,40 +23,29 @@ class TeamCompGeneralStatsSlot extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Games:', style: StatisticsPageTextStyles.statsNameTextStyle),
-                  Text(
-                    stats.totalGames.toString(),
-                    style: StatisticsPageTextStyles.statsValueTextStyle,
-                  )
+                  Text('Games:', style: StatisticsPageTextStyles.generalStatsHeaderTextStyle),
+                  Text(stats.totalGames.toString(), style: StatisticsPageTextStyles.generalStatsValueTextStyle)
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Win rate:', style: StatisticsPageTextStyles.statsNameTextStyle),
-                  Text(
-                    "${(stats.totalWinRate * 100).toStringAsFixed(2)}%",
-                    style: StatisticsPageTextStyles.statsValueTextStyle,
-                  )
+                  Text('Win rate:', style: StatisticsPageTextStyles.generalStatsHeaderTextStyle),
+                  Text("${(stats.totalWinRate * 100).toStringAsFixed(2)}%", style: StatisticsPageTextStyles.generalStatsValueTextStyle)
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Wins:', style: StatisticsPageTextStyles.statsNameTextStyle),
-                  Text(
-                    stats.totalWins.toString(),
-                    style: StatisticsPageTextStyles.statsValueTextStyle,
-                  )
+                  Text('Wins:', style: StatisticsPageTextStyles.generalStatsHeaderTextStyle),
+                  Text(stats.totalWins.toString(), style: StatisticsPageTextStyles.generalStatsValueTextStyle)
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Loses:', style: StatisticsPageTextStyles.statsNameTextStyle),
-                  Text(
-                    stats.totalLoses.toString(),
-                    style: StatisticsPageTextStyles.statsValueTextStyle,
+                  Text('Loses:', style: StatisticsPageTextStyles.generalStatsHeaderTextStyle),
+                  Text(stats.totalLoses.toString(),style: StatisticsPageTextStyles.generalStatsValueTextStyle,
                   )
                 ],
               ),
