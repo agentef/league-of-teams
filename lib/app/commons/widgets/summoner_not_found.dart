@@ -6,15 +6,13 @@ import 'package:league_team_analytics/app/commons/widgets/text_style/default_hea
 
 class SummonerNotFound extends StatelessWidget {
   @override
-
   Widget build(BuildContext context) {
-
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.error, color: CustomColors.appColorScheme.error, size: 64),
-          Text(MessagesEnum.SP_summoner_not_found.get.tr, style: TextStyles.DefaultErrorTextStyle,)
+          Text(MessagesEnum.SP_summoner_not_found.get.tr, style: TextStyles.DefaultErrorTextStyle)
         ],
       ),
     );

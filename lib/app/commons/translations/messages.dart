@@ -15,6 +15,7 @@ class Messages extends Translations {
           MessagesEnum.SP_summoner_not_found.get: 'One or more summoners were not found.',
           MessagesEnum.SP_no_matches_found.get: 'No matches found for the provided time period.',
         },
+
         'pt_BR': {
           MessagesEnum.HP_insert_names.get: 'Insira de dois a cinco nomes de invocador separados com vírgula (,)',
           MessagesEnum.please_wait.get: 'Por favor, aguarde...',

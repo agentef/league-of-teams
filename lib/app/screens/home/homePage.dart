@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 80),
-              Text(MessagesEnum.HP_insert_names.get.tr, style: TextStyles.DefaultHeaderTextStyle, textAlign: TextAlign.center,),
+              Text(MessagesEnum.HP_insert_names.get.tr, style: TextStyles.DefaultHeaderTextStyle, textAlign: TextAlign.center),
               SizedBox(height: 20),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(MessagesEnum.HP_days_filter_message1.get.tr, style: TextStyles.DefaultHeaderTextStyle,),
+                          Text(MessagesEnum.HP_days_filter_message1.get.tr, style: TextStyles.DefaultHeaderTextStyle),
                           Container(
                             alignment: Alignment.center,
                             height: 32,
@@ -86,10 +86,10 @@ class HomePage extends StatelessWidget {
                               decoration: InputDecoration.collapsed(hintText: '30'),
                               inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                               keyboardType: TextInputType.number,
-                              onFieldSubmitted: (value) => searchMatches(),
+                              onFieldSubmitted: (value) => searchMatches()
                             ),
                           ),
-                          Text(MessagesEnum.HP_days_filter_message2.get.tr, style: TextStyles.DefaultHeaderTextStyle,)
+                          Text(MessagesEnum.HP_days_filter_message2.get.tr, style: TextStyles.DefaultHeaderTextStyle)
                         ],
                       ),
                     ),
