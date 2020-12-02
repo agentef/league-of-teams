@@ -28,7 +28,8 @@ class StatisticsService {
             ));
 
       return MatchListDto.fromJson(response.data);
-    } on DioError {
+    } on DioError catch (e) {
+      if (e.response.statusCode == 404) throw e;
       await Future.delayed(Duration(seconds: 15));
       return getMatchListBySummonerNames(summoners, params);
     }
