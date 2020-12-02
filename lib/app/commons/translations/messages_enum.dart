@@ -8,6 +8,7 @@ enum MessagesEnum {
   HP_must_contain_2,
   HP_days_filter_message1,
   HP_days_filter_message2,
+  HP_summoners_must_be_distincts,
 
   // Statistics Page
 

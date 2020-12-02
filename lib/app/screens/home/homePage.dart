@@ -51,6 +51,8 @@ class HomePage extends StatelessWidget {
                 child: TextFormField(
                   validator: (value) {
                     if (!value.contains(",")) return MessagesEnum.HP_must_contain_2.get.tr;
+                    var summoners = value.removeAllWhitespace.split(",").toList();
+                    if (summoners.length != summoners.toSet().length) return MessagesEnum.HP_summoners_must_be_distincts.get.tr;
                     return null;
                   },
                   controller: _summonersController,
