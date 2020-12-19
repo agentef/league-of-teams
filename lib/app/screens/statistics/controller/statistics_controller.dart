@@ -10,9 +10,10 @@ class StatisticsController {
   final _service = StatisticsService();
 
   final error = false.obs;
-  final matchListDTO = Rx<MatchListDto>();
+  final matchListDTO = Rx<MatchListDTO>();
   final teamStatsDTO = Rx<TeamStatsDTO>();
-  final progress = 0.0.obs;
+  final progress = 0.0.toDouble().obs;
+  final isVisible = true.obs;
 
   void searchMatchList(String summoners, CompsParams params) async {
     try {
@@ -22,7 +23,7 @@ class StatisticsController {
     }
   }
 
-  void searchMatches(MatchListDto matchList, CompsParams params) async {
+  void searchMatches(MatchListDTO matchList, CompsParams params) async {
     teamStatsDTO(await _service.getCompsByMatchList(matchList, params));
     progress(teamStatsDTO.value.totalGames / matchListDTO.value.totalGames);
   }

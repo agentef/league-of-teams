@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:league_team_analytics/app/commons/colors/colors.dart';
 
 class TextStyles {
   static const DefaultHeaderTextStyle = TextStyle(
@@ -24,5 +25,11 @@ class TextStyles {
     color: Colors.black87,
     fontSize: 32,
     fontWeight: FontWeight.w700
+  );
+
+  static final DefaultTextStyle = TextStyle(
+    color: CustomColors.appColorScheme.onBackground,
+    fontSize: 16,
+    fontWeight: FontWeight.w600
   );
 }

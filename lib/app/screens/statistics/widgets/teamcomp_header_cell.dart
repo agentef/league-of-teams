@@ -19,6 +19,6 @@ class TeamCompHeaderCell extends StatelessWidget {
             color: CustomColors.appColorScheme.surface,
             shape: RoundedRectangleBorder(
                 side: BorderSide(width: 2, color: CustomColors.appColorScheme.primary), borderRadius: BorderRadius.circular(8))),
-        child: Row(children: [dto == null ? SizedBox(height: 140, width: 140) : TeamCompGeneralStatsSlot(dto)] + summonerCellSlots));
+        child: Row(children: [dto == null ? SizedBox(height: 140, width: 206) : TeamCompGeneralStatsSlot(dto)] + summonerCellSlots));
   }
 }

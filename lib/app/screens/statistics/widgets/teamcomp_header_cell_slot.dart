@@ -36,7 +36,7 @@ class TeamCompHeaderCellSlot extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(right: 8, top: 1, bottom: 1),
       height: 120,
-      width: 172,
+      width: 180,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           side: BorderSide(color: CustomColors.appColorScheme.primary, width: 0.5),

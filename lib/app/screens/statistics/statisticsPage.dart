@@ -1,12 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:league_team_analytics/app/commons/colors/colors.dart';
 import 'package:league_team_analytics/app/commons/widgets/loading_screen.dart';
 import 'package:league_team_analytics/app/commons/widgets/main_container.dart';
 import 'package:league_team_analytics/app/commons/widgets/summoner_not_found.dart';
+import 'package:league_team_analytics/app/screens/statistics/widgets/loading_bar.dart';
 import 'package:league_team_analytics/app/screens/statistics/widgets/statistics_page_no_matches.dart';
 import 'package:league_team_analytics/app/screens/statistics/widgets/teamcomp_header_cell.dart';
 import 'package:league_team_analytics/models/response/match_list_dto.dart';
@@ -31,68 +32,59 @@ class _StatisticsPageState extends State<StatisticsPage> {
     return Obx(() {
       Widget statisticsView;
 
-      final matchListDto = _statisticsController.matchListDTO.value;
+      final matchListDTO = _statisticsController.matchListDTO.value;
       final hasError = _statisticsController.error.value;
       final teamStatsDTO = _statisticsController.teamStatsDTO.value;
       final progress = _statisticsController.progress.value;
 
-      final progressBar = AnimatedOpacity(
-        opacity: progress == 1 ? 0 : 1,
-        duration: Duration(milliseconds: 2000),
-        child: Card(
-            color: CustomColors.appColorScheme.surface,
-            child: Column(
-              children: [
-                LinearProgressIndicator(value: progress, valueColor: AlwaysStoppedAnimation<Color>(CustomColors.appColorScheme.primary)),
-                Text("${(progress * 100).toPrecision(1)}%")
-              ],
-            )),
-      );
+      if (progress == 1) Future.delayed(Duration(seconds: 2)).then((_) => _statisticsController.isVisible(false));
 
       if (hasError) return MainContainer(SummonerNotFound());
 
-      if (matchListDto == null) {
+      if (matchListDTO == null) {
         _statisticsController.searchMatchList(Get.parameters['summoners'], params);
         return MainContainer(LoadingScreen());
       }
 
-
-
-      if (matchListDto.matchIds.isEmpty) {
+      if (matchListDTO.matchIds.isEmpty) {
         statisticsView = StatisticsPageNoMatches();
       } else {
         if (teamStatsDTO == null) {
-          _statisticsController.searchMatches(matchListDto, params);
+          _statisticsController.searchMatches(matchListDTO, params);
           statisticsView = LoadingScreen();
         } else {
-          if (matchListDto.totalGames > teamStatsDTO.totalGames) {
-            Future.delayed(Duration(seconds: 2)).then((value) => _statisticsController.searchMatches(matchListDto, params));
+          if (matchListDTO.totalGames > teamStatsDTO.totalGames) {
+            Future.delayed(Duration(seconds: 2)).then((value) => _statisticsController.searchMatches(matchListDTO, params));
           }
+          final cells = getCells(teamStatsDTO, matchListDTO.version);
 
-          final cells = getCells(teamStatsDTO, matchListDto.version);
-
-          statisticsView = ListView.builder(itemCount: cells.length, itemBuilder: (_, index) => cells[index]);
+          final scrollController = ScrollController();
+          statisticsView = Scrollbar(
+              isAlwaysShown: true,
+              controller: scrollController,
+              child: ListView.builder(controller: scrollController, itemCount: cells.length, itemBuilder: (_, index) => cells[index]));
         }
       }
       return MainContainer(Center(
           child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 172.0 + 206.0 * matchListDto.summoners.length),
-            child: Column(
-              children: [
-                Container(margin: EdgeInsets.all(32), child: Column(
-                  children: [
-                    TeamCompHeaderCell(teamStatsDTO, getSummonerCells(matchListDto)),
-                    progressBar,
-                  ],
-                )),
-                Expanded(child: Container(margin: EdgeInsets.symmetric(horizontal: 32), child: statisticsView))
-              ],
-            ),
-      )));
+              constraints: BoxConstraints(maxWidth: 226.0 + 204.0 * matchListDTO.summoners.length),
+              child: Column(
+                children: [
+                  Container(
+                      margin: EdgeInsets.all(16),
+                      child: Column(
+                        children: [
+                          TeamCompHeaderCell(teamStatsDTO, getSummonerCells(matchListDTO)),
+                          StatisticsPageLoadingBar(progress, teamStatsDTO, matchListDTO, _statisticsController.isVisible.value)
+                        ],
+                      )),
+                  Expanded(child: Container(margin: EdgeInsets.symmetric(horizontal: 32), child: statisticsView))
+                ],
+              ))));
     });
   }
 
-  List<TeamCompCell> getCells(TeamStatsDTO dto, String version) => dto.compStats.map((it) => TeamCompCell(it, dto.summoners, version)).toList();
+  List<TeamCompHeaderCellSlot> getSummonerCells(MatchListDTO dto) => dto.summoners.map((it) => TeamCompHeaderCellSlot(it, dto.version)).toList();
 
-  List<TeamCompHeaderCellSlot> getSummonerCells(MatchListDto dto) => dto.summoners.map((it) => TeamCompHeaderCellSlot(it, dto.version)).toList();
+  List<TeamCompCell> getCells(TeamStatsDTO dto, String version) => dto.compStats.map((it) => TeamCompCell(it, dto.summoners, version)).toList();
 }

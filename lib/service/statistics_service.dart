@@ -10,7 +10,7 @@ import 'objects/comps_params.dart';
 class StatisticsService {
   final _dio = Dio(BaseOptions(baseUrl: "${Constants.BASE_URL}/stats/"));
 
-  Future<MatchListDto> getMatchListBySummonerNames(String summoners, CompsParams params) async {
+  Future<MatchListDTO> getMatchListBySummonerNames(String summoners, CompsParams params) async {
     try {
       final response = await _dio.get(
           'comps/matchList/$summoners',
@@ -27,7 +27,7 @@ class StatisticsService {
             }
             ));
 
-      return MatchListDto.fromJson(response.data);
+      return MatchListDTO.fromJson(response.data);
     } on DioError catch (e) {
       if (e.response.statusCode == 404) throw e;
       await Future.delayed(Duration(seconds: 15));
@@ -35,7 +35,7 @@ class StatisticsService {
     }
   }
 
-  Future<TeamStatsDTO> getCompsByMatchList(MatchListDto request, CompsParams params) async {
+  Future<TeamStatsDTO> getCompsByMatchList(MatchListDTO request, CompsParams params) async {
     try {
       final response = await _dio.post(
           'comps/matchList',
