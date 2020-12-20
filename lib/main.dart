@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       translations: Messages(),
-      locale: Locale('pt', 'BR'),
+      locale: Get.deviceLocale,
       fallbackLocale: Locale('en', 'US'),
-      title: 'League of Teams',
+      title: 'LoL Teams',
       theme: ThemeData.from(colorScheme: CustomColors.appColorScheme, textTheme: TextTheme().apply(fontFamily: Fonts.QUICKSAND)),
       getPages: [
         GetPage(name: '/', page: () => HomePage()),

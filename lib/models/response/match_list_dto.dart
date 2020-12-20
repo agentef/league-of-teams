@@ -7,15 +7,15 @@ import 'mini_series_dto.dart';
 import 'rank.dart';
 import 'tier.dart';
 
-class MatchListDto {
+class MatchListDTO {
   List<DetailedSummoner> summoners;
   List<int> matchIds;
   int totalGames;
   String version;
 
-  MatchListDto({this.summoners, this.matchIds, this.totalGames});
+  MatchListDTO({this.summoners, this.matchIds, this.totalGames});
 
-  MatchListDto.fromJson(Map<String, dynamic> json)
+  MatchListDTO.fromJson(Map<String, dynamic> json)
       : summoners = List.from(json['summoners']).map((e) => DetailedSummoner.fromJson(e)).toList(),
         matchIds = List<int>.from(json['matchIds']),
         totalGames = json['totalGames'],

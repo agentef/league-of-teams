@@ -5,6 +5,6 @@ class PreferencesController {
 
   final region = Region.BR1.name.obs;
 
-  setRegion(Region region) => this.region(region.name);
+  setRegion(String region) => this.region(region);
 
 }

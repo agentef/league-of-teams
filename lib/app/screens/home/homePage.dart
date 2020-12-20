@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:league_team_analytics/app/commons/colors/colors.dart';
 import 'package:league_team_analytics/app/commons/controller/preferences_controller.dart';
+import 'package:league_team_analytics/app/commons/data/regions.dart';
 import 'package:league_team_analytics/app/commons/translations/messages_enum.dart';
 import 'package:league_team_analytics/app/commons/widgets/main_container.dart';
 import 'package:league_team_analytics/app/commons/widgets/text_style/default_header.dart';
@@ -27,90 +28,118 @@ class HomePage extends StatelessWidget {
         constraints: BoxConstraints(minWidth: 600, minHeight: 400),
         height: height * 0.4,
         width: width * 0.3,
-        child: Card(
-          elevation: 5,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50))),
-          child: Form(
-            key: _formKey,
-            child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(child: Images.getLogo(size: 64)),
-                  SizedBox(width: 24),
-                  Text("Lol Teams", style: TextStyles.DefaultTitleTextStyle)
-                ],
-              ),
-              SizedBox(height: 80),
-              Text(MessagesEnum.insert_names.get.tr, style: TextStyles.DefaultHeaderTextStyle, textAlign: TextAlign.center,),
-              SizedBox(height: 20),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                decoration: ShapeDecoration(shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))), color: CustomColors.appColorScheme.background),
-                child: TextFormField(
-                  validator: (value) {
-                    if (!value.contains(",")) return MessagesEnum.must_contain_2.get.tr;
-                    return null;
-                  },
-                  controller: _summonersController,
-                  style: TextFieldStyles.defaultTextFieldStyle,
-                  textAlign: TextAlign.center,
-                  focusNode: _summonerNamesFocusNode,
-                  onFieldSubmitted: (value) => searchMatches()
+        child: Obx(() => Card(
+            elevation: 5,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50))),
+            child: Form(
+              key: _formKey,
+              child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(child: Images.getLogo(size: 64)),
+                    SizedBox(width: 24),
+                    Text("Lol Teams", style: TextStyles.DefaultTitleTextStyle)
+                  ],
                 ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Card(
-                    shape:  RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
-                    color: CustomColors.appColorScheme.error.withOpacity(0.2),
-                    elevation: 6,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(MessagesEnum.days_filter_message1.get.tr, style: TextStyles.DefaultHeaderTextStyle,),
-                          Container(
-                            alignment: Alignment.center,
-                            height: 32,
-                            width: 40,
-                            child: TextFormField(
-                              controller: _daysFilterController,
-                              style: TextStyles.DefaultHeaderTextStyle,
-                              textAlign: TextAlign.center,
-                              decoration: InputDecoration.collapsed(hintText: '30'),
-                              inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
-                              keyboardType: TextInputType.number,
-                              onFieldSubmitted: searchMatches(),
+                SizedBox(height: 80),
+                Text(MessagesEnum.HP_insert_names.get.tr, style: TextStyles.DefaultHeaderTextStyle, textAlign: TextAlign.center),
+                SizedBox(height: 20),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: ShapeDecoration(shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))), color: CustomColors.appColorScheme.background),
+                  child: TextFormField(
+                    validator: (value) {
+                      if (!value.contains(",")) return MessagesEnum.HP_must_contain_2.get.tr;
+                      var summoners = value.removeAllWhitespace.split(",").toList();
+                      if (summoners.length != summoners.toSet().length) return MessagesEnum.HP_summoners_must_be_distincts.get.tr;
+                      return null;
+                    },
+                    controller: _summonersController,
+                    style: TextFieldStyles.defaultTextFieldStyle,
+                    textAlign: TextAlign.center,
+                    focusNode: _summonerNamesFocusNode,
+                    onFieldSubmitted: (value) => searchMatches()
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Card(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                      color: CustomColors.appColorScheme.error.withOpacity(0.2),
+                      elevation: 6,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(MessagesEnum.HP_days_filter_message1.get.tr, style: TextStyles.DefaultHeaderTextStyle),
+                            Container(
+                              alignment: Alignment.center,
+                              height: 32,
+                              width: 40,
+                              child: TextFormField(
+                                  controller: _daysFilterController,
+                                  style: TextStyles.DefaultHeaderTextStyle,
+                                  textAlign: TextAlign.center,
+                                  decoration: InputDecoration.collapsed(hintText: '30'),
+                                  inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                                  keyboardType: TextInputType.number,
+                                  onFieldSubmitted: (value) => searchMatches()
+                              ),
                             ),
-                          ),
-                          Text(MessagesEnum.days_filter_message2.get.tr, style: TextStyles.DefaultHeaderTextStyle,)
-                        ],
+                            Text(MessagesEnum.HP_days_filter_message2.get.tr, style: TextStyles.DefaultHeaderTextStyle)
+                          ],
+                        ),
                       ),
                     ),
-                  )],
-              ),
-              Container(
-                width: 120,
-                height: 48,
-                padding: const EdgeInsets.all(8.0),
-                child: MaterialButton(
-                  color: CustomColors.appColorScheme.primary,
-                  child: Text(MessagesEnum.go.get.tr, style: TextStyle(color: CustomColors.appColorScheme.onPrimary)),
-                  onPressed: () => searchMatches()
+                    Card(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                      color: CustomColors.appColorScheme.error.withOpacity(0.2),
+                      elevation: 6,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(MessagesEnum.HP_region_filter_message.get.tr, style: TextStyles.DefaultHeaderTextStyle),
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 4),
+                              height: 32,
+                              child: DropdownButton(
+                                value: _preferencesController.region.value,
+                                  style: TextStyles.DefaultTextStyle,
+                                  items: Region.values.map((e) => DropdownMenuItem(value: e.name, child: Text(e.name))).toList(),
+                                  onChanged: (value) => _preferencesController.setRegion(value),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              )
-            ]),
+                Container(
+                  width: 120,
+                  height: 48,
+                  padding: const EdgeInsets.all(8.0),
+                  child: MaterialButton(
+                    color: CustomColors.appColorScheme.primary,
+                    child: Text(MessagesEnum.go.get.tr, style: TextStyle(color: CustomColors.appColorScheme.onPrimary)),
+                    onPressed: () => searchMatches()
+                  ),
+                )
+              ]),
+            ),
           ),
         ),
       ),
     );
-
 
     return MainContainer(mainPageViewController);
   }

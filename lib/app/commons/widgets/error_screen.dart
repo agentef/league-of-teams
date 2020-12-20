@@ -10,16 +10,15 @@ class ErrorScreen extends StatefulWidget {
 class _ErrorScreenState extends State<ErrorScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text("Error!", style: TextStyles.DefaultHeaderTextStyle,),
-        SizedBox(height: 30),
-        Container(
-          child: Icon(Icons.error_outline, color: Colors.red, size: 48,),
-        ),
-      ],
-    ),);
-
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("Error!", style: TextStyles.DefaultHeaderTextStyle),
+          SizedBox(height: 30),
+          Icon(Icons.error_outline, color: Colors.red, size: 48),
+        ],
+      ),
+    );
   }
 }
