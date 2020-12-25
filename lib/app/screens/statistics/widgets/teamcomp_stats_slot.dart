@@ -22,29 +22,29 @@ class TeamCompStatsSlot extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(MessagesEnum.SP_total_games.get.tr, style: StatisticsPageTextStyles.statsNameTextStyle),
-              Text("${compStats.totalGames}", style: StatisticsPageTextStyles.statsValueTextStyle)
+              SelectableText(MessagesEnum.SP_total_games.get.tr, style: StatisticsPageTextStyles.statsNameTextStyle),
+              SelectableText("${compStats.totalGames}", style: StatisticsPageTextStyles.statsValueTextStyle)
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(MessagesEnum.SP_win_rate.get.tr, style: StatisticsPageTextStyles.statsNameTextStyle),
-              Text("${compStats.winRate.toStringAsFixed(2)}%", style: StatisticsPageTextStyles.statsValueTextStyle)
+              SelectableText(MessagesEnum.SP_win_rate.get.tr, style: StatisticsPageTextStyles.statsNameTextStyle),
+              SelectableText("${compStats.winRate.toStringAsFixed(2)}%", style: StatisticsPageTextStyles.statsValueTextStyle)
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(MessagesEnum.SP_wins.get.tr, style: StatisticsPageTextStyles.statsNameTextStyle),
-              Text("${compStats.wins}", style: StatisticsPageTextStyles.statsValueTextStyle)
+              SelectableText(MessagesEnum.SP_wins.get.tr, style: StatisticsPageTextStyles.statsNameTextStyle),
+              SelectableText("${compStats.wins}", style: StatisticsPageTextStyles.statsValueTextStyle)
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(MessagesEnum.SP_loses.get.tr, style: StatisticsPageTextStyles.statsNameTextStyle),
-              Text("${compStats.loses}", style: StatisticsPageTextStyles.statsValueTextStyle)
+              SelectableText(MessagesEnum.SP_loses.get.tr, style: StatisticsPageTextStyles.statsNameTextStyle),
+              SelectableText("${compStats.loses}", style: StatisticsPageTextStyles.statsValueTextStyle)
             ],
           ),
         ],

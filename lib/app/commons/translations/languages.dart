@@ -1,14 +1,14 @@
 
 enum Languages {
 
-  PT_BR,
-  EN_US
+  pt_BR,
+  en_US
 
 }
 
 extension LanguageNames on Languages {
 
-  String get get => this.toString();
+  String get get => this.toString().substring(10);
 
   String get language => LanguagesHelper.languages.entries.where((e) => e.key == this).first.value;
 
@@ -17,8 +17,8 @@ extension LanguageNames on Languages {
 class LanguagesHelper {
 
   static Map<Languages, String> get languages => {
-    Languages.PT_BR: "Português",
-    Languages.EN_US: "English"
+    Languages.pt_BR: "Português",
+    Languages.en_US: "English"
   };
 
 }

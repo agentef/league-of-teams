@@ -6,7 +6,7 @@ class Messages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': {
-          MessagesEnum.HP_insert_names.get: 'Enter two to five summoner names separated with comma (,)',
+          MessagesEnum.HP_insert_names.get: 'Enter two to five summoner names separated by commas (,)',
           MessagesEnum.please_wait.get: 'Please wait...',
           MessagesEnum.HP_must_contain_2.get: 'Must contain at least two summoner names.',
           MessagesEnum.go.get: 'Go',

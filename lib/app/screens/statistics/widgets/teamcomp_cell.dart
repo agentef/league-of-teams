@@ -15,13 +15,15 @@ class TeamCompCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.green,
       elevation: 5,
       shadowColor: CustomColors.appColorScheme.primaryVariant,
       margin: EdgeInsets.all(8),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Container(
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
           gradient: LinearGradient(
               begin: Alignment.bottomLeft,
               end: Alignment.topRight,

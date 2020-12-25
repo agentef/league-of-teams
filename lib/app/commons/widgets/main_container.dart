@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:league_team_analytics/app/commons/colors/colors.dart';
+import 'package:league_team_analytics/app/commons/widgets/language_dropdown_widget.dart';
 import 'package:league_team_analytics/app/commons/widgets/text_style/image.dart';
 import 'package:league_team_analytics/configuration/constants.dart';
 
@@ -16,6 +17,9 @@ class MainContainer extends StatelessWidget {
     return Background(
       Scaffold(
         appBar: AppBar(
+          actions: [
+            LanguageDropdownButton()
+          ],
           title: MaterialButton(
             onPressed: () => Get.offNamed('/'),
             child: Row(

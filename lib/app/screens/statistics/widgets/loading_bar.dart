@@ -23,12 +23,12 @@ class StatisticsPageLoadingBar extends StatelessWidget {
           color: CustomColors.appColorScheme.surface,
           child: Column(
             children: [
-              Text(MessagesEnum.please_wait.get.tr, style: TextStyles.DefaultTextStyle),
+              SelectableText(MessagesEnum.please_wait.get.tr, style: TextStyles.DefaultTextStyle),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: LinearProgressIndicator(value: progress, valueColor: AlwaysStoppedAnimation(CustomColors.appColorScheme.secondaryVariant)),
               ),
-              Text(
+              SelectableText(
                   "${(progress * 100).toPrecision(1)}% ${teamStatsDTO == null ? "" : "${teamStatsDTO.totalGames}/${matchListDTO.matchIds.length}"}",
                   style: TextStyles.DefaultTextStyle)
             ],

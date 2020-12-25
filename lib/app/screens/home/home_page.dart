@@ -9,6 +9,7 @@ import 'package:league_team_analytics/app/commons/widgets/main_container.dart';
 import 'package:league_team_analytics/app/commons/widgets/text_style/default_header.dart';
 import 'package:league_team_analytics/app/commons/widgets/text_style/default_text_field.dart';
 import 'package:league_team_analytics/app/commons/widgets/text_style/image.dart';
+import 'package:league_team_analytics/configuration/constants.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -20,15 +21,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    var height = Get.height;
+    var width = Get.width;
 
-    final mainPageViewController = Center(
-      child: Container(
-        constraints: BoxConstraints(minWidth: 600, minHeight: 400),
-        height: height * 0.4,
-        width: width * 0.3,
-        child: Obx(() => Card(
+    final obx = Obx(() => Card(
             elevation: 5,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50))),
             child: Form(
@@ -39,11 +35,11 @@ class HomePage extends StatelessWidget {
                   children: [
                     Container(child: Images.getLogo(size: 64)),
                     SizedBox(width: 24),
-                    Text("Lol Teams", style: TextStyles.DefaultTitleTextStyle)
+                    SelectableText(Constants.TITLE, style: TextStyles.DefaultTitleTextStyle)
                   ],
                 ),
                 SizedBox(height: 80),
-                Text(MessagesEnum.HP_insert_names.get.tr, style: TextStyles.DefaultHeaderTextStyle, textAlign: TextAlign.center),
+                SelectableText(MessagesEnum.HP_insert_names.get.tr, style: TextStyles.DefaultHeaderTextStyle, textAlign: TextAlign.center),
                 SizedBox(height: 20),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -77,7 +73,7 @@ class HomePage extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(MessagesEnum.HP_days_filter_message1.get.tr, style: TextStyles.DefaultHeaderTextStyle),
+                            SelectableText(MessagesEnum.HP_days_filter_message1.get.tr, style: TextStyles.DefaultHeaderTextStyle),
                             Container(
                               alignment: Alignment.center,
                               height: 32,
@@ -92,7 +88,7 @@ class HomePage extends StatelessWidget {
                                   onFieldSubmitted: (value) => searchMatches()
                               ),
                             ),
-                            Text(MessagesEnum.HP_days_filter_message2.get.tr, style: TextStyles.DefaultHeaderTextStyle)
+                            SelectableText(MessagesEnum.HP_days_filter_message2.get.tr, style: TextStyles.DefaultHeaderTextStyle)
                           ],
                         ),
                       ),
@@ -107,14 +103,14 @@ class HomePage extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(MessagesEnum.HP_region_filter_message.get.tr, style: TextStyles.DefaultHeaderTextStyle),
+                            SelectableText(MessagesEnum.HP_region_filter_message.get.tr, style: TextStyles.DefaultHeaderTextStyle),
                             Container(
                               padding: EdgeInsets.symmetric(horizontal: 4),
                               height: 32,
                               child: DropdownButton(
                                 value: _preferencesController.region.value,
                                   style: TextStyles.DefaultTextStyle,
-                                  items: Region.values.map((e) => DropdownMenuItem(value: e.name, child: Text(e.name))).toList(),
+                                  items: Region.values.map((e) => DropdownMenuItem(value: e.name, child: SelectableText(e.name))).toList(),
                                   onChanged: (value) => _preferencesController.setRegion(value),
                               ),
                             ),
@@ -130,14 +126,20 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: MaterialButton(
                     color: CustomColors.appColorScheme.primary,
-                    child: Text(MessagesEnum.go.get.tr, style: TextStyle(color: CustomColors.appColorScheme.onPrimary)),
+                    child: SelectableText(MessagesEnum.go.get.tr, style: TextStyle(color: CustomColors.appColorScheme.onPrimary)),
                     onPressed: () => searchMatches()
                   ),
                 )
               ]),
             ),
           ),
-        ),
+        );
+    final mainPageViewController = Center(
+      child: Container(
+        constraints: BoxConstraints(minWidth: 600, minHeight: 400),
+        height: height * 0.4,
+        width: width * 0.3,
+        child: width < 800 ? Transform.scale(child: obx, scale: 1.8) : obx,
       ),
     );
 

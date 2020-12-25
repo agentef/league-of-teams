@@ -48,7 +48,7 @@ class TeamCompHeaderCellSlot extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.network('http://ddragon.leagueoflegends.com/cdn/$_version/img/profileicon/${_detailedSummoner.summoner.profileIconId}.png', height: 48, width: 48),
-          Text(_detailedSummoner.summoner.name, style: StatisticsPageTextStyles.summonerNameTextStyle),
+          SelectableText(_detailedSummoner.summoner.name, style: StatisticsPageTextStyles.summonerNameTextStyle),
           _getEloWidget()
         ],
       ),

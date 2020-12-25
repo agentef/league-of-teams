@@ -27,8 +27,16 @@ class TextStyles {
     fontWeight: FontWeight.w700
   );
 
+  // ignore: non_constant_identifier_names
   static final DefaultTextStyle = TextStyle(
     color: CustomColors.appColorScheme.onBackground,
+    fontSize: 16,
+    fontWeight: FontWeight.w600
+  );
+
+  // ignore: non_constant_identifier_names
+  static final LanguageTextStyle = TextStyle(
+    color: CustomColors.appColorScheme.onPrimary.withOpacity(.95),
     fontSize: 16,
     fontWeight: FontWeight.w600
   );

@@ -6,6 +6,7 @@ class Fonts {
 
 class Constants {
 
+  static const LANGUAGE = "language";
   static const TITLE = "LoL Teams";
   static const BASE_URL = "http://lolteams-dev.sa-east-1.elasticbeanstalk.com" ;
   // static const BASE_URL = "http://localhost:8080" ;

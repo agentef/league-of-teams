@@ -11,7 +11,7 @@ class StatisticsPageNoMatches extends StatelessWidget {
       child: Column(
         children: [
           Icon(Icons.error, color: CustomColors.appColorScheme.error, size: 48),
-          Text(MessagesEnum.SP_no_matches_found.get.tr, style: TextStyles.SmallErrorTextStyle)
+          SelectableText(MessagesEnum.SP_no_matches_found.get.tr, style: TextStyles.SmallErrorTextStyle)
         ],
       ),
     );

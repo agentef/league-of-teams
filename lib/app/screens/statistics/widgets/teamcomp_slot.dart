@@ -29,7 +29,7 @@ class TeamCompSlot extends StatelessWidget {
                 height: 48,
                 width: 48,
               ),
-              Text(_summonerInfo.championName, style: StatisticsPageTextStyles.championNameTextStyle)
+              SelectableText(_summonerInfo.championName, style: StatisticsPageTextStyles.championNameTextStyle)
             ],
           ),
           Container(
@@ -41,29 +41,29 @@ class TeamCompSlot extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("K", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
-                    Text("${_summonerInfo.kills.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
+                    SelectableText("K", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
+                    SelectableText("${_summonerInfo.kills.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
                   ]),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("D", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
-                    Text("${_summonerInfo.deaths.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
+                    SelectableText("D", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
+                    SelectableText("${_summonerInfo.deaths.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
                   ]),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("A", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
-                    Text("${_summonerInfo.assists.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
+                    SelectableText("A", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
+                    SelectableText("${_summonerInfo.assists.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
                   ]),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("cs", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
-                    Text("${_summonerInfo.cs.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
+                    SelectableText("cs", style: StatisticsPageTextStyles.kdaHeaderTextStyle,),
+                    SelectableText("${_summonerInfo.cs.toStringAsFixed(1)}", style: StatisticsPageTextStyles.kdaValueTextStyle,),
                   ]),
               ],
             ),
