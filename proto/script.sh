@@ -1,0 +1,1 @@
+protoc -I proto/ --dart_out=grpc:lib/models/generated StatsController.proto google/protobuf/timestamp.proto

@@ -4,12 +4,14 @@ import 'package:dio/dio.dart';
 import 'package:league_team_analytics/configuration/constants.dart';
 import 'package:league_team_analytics/models/response/match_list_dto.dart';
 import 'package:league_team_analytics/models/response/team_stats_dto.dart';
+import 'package:league_team_analytics/service/statistics_service_stub.dart';
 
 import 'objects/comps_params.dart';
 
-class StatisticsService {
+class StatisticsService extends StatisticsServiceStub {
   final _dio = Dio(BaseOptions(baseUrl: "${Constants.BASE_URL}/stats/"));
 
+  @override
   Future<MatchListDTO> getMatchListBySummonerNames(String summoners, CompsParams params) async {
     try {
       final response = await _dio.get(
@@ -35,6 +37,7 @@ class StatisticsService {
     }
   }
 
+  @override
   Future<TeamStatsDTO> getCompsByMatchList(MatchListDTO request, CompsParams params) async {
     try {
       final response = await _dio.post(
@@ -54,3 +57,5 @@ class StatisticsService {
     }
   }
 }
+
+StatisticsServiceStub init() => StatisticsService();

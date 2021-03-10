@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 import 'package:league_team_analytics/models/response/match_list_dto.dart';
 import 'package:league_team_analytics/models/response/team_stats_dto.dart';
 import 'package:league_team_analytics/service/objects/comps_params.dart';
-import 'package:league_team_analytics/service/statistics_service.dart';
+import 'file:///E:/Dev/League%20Team%20Analytics/league_team_analytics/lib/service/statistics_service_factory.dart';
 
 class StatisticsController {
 
-  final _service = StatisticsService();
+  final _service = StatisticsServiceFactory.get();
 
   final error = false.obs;
   final matchListDTO = Rx<MatchListDTO>();
