@@ -25,7 +25,7 @@ class MainContainer extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(padding: const EdgeInsets.all(8.0), child: Images.getLogo(size: 40)),
+                Padding(padding: const EdgeInsets.all(8.0), child: Images.getLogo(size: 40.0)),
                 Text(Constants.TITLE, style: TextStyle(color: CustomColors.antiFlashWhite, fontSize: 24, fontWeight: FontWeight.w500))
               ],
             ),

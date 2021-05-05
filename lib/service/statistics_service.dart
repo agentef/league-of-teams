@@ -38,7 +38,7 @@ class StatisticsService extends StatisticsServiceStub {
   }
 
   @override
-  Future<TeamStatsDTO> getCompsByMatchList(MatchListDTO request, CompsParams params) async {
+  Future<LocalTeamStatsDTO> getCompsByMatchList(MatchListDTO request, CompsParams params) async {
     try {
       final response = await _dio.post(
           'comps/matchList',
@@ -50,7 +50,7 @@ class StatisticsService extends StatisticsServiceStub {
             }
             ));
 
-      return TeamStatsDTO.fromJson(response.data);
+      return LocalTeamStatsDTO.fromJson(response.data);
     } on DioError {
       await Future.delayed(Duration(seconds: 15));
       return getCompsByMatchList(request, params);

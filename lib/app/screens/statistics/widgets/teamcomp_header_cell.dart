@@ -6,7 +6,7 @@ import 'teamcomp_general_stats_slot.dart';
 import 'teamcomp_header_cell_slot.dart';
 
 class TeamCompHeaderCell extends StatelessWidget {
-  final TeamStatsDTO dto;
+  final LocalTeamStatsDTO dto;
   final List<TeamCompHeaderCellSlot> summonerCellSlots;
 
   TeamCompHeaderCell(this.dto, this.summonerCellSlots);

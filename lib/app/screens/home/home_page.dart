@@ -33,8 +33,8 @@ class HomePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(child: Images.getLogo(size: 64)),
-                    SizedBox(width: 24),
+                    Container(child: Images.getLogo(size: 64.0)),
+                    SizedBox(width: 24.0),
                     SelectableText(Constants.TITLE, style: TextStyles.DefaultTitleTextStyle)
                   ],
                 ),
@@ -64,9 +64,9 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Card(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
                       color: CustomColors.appColorScheme.error.withOpacity(0.2),
-                      elevation: 6,
+                      elevation: 6.0,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(

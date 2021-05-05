@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:league_team_analytics/app/commons/colors/colors.dart';
-import 'package:league_team_analytics/models/response/match_list_dto.dart';
+import 'package:league_team_analytics/models/response/detailed_summoner.dart';
 
 import 'statistics_page_text_styles.dart';
 
 class TeamCompHeaderCellSlot extends StatelessWidget {
-  final DetailedSummoner _detailedSummoner;
+  final LocalDetailedSummoner _detailedSummoner;
   final String _version;
 
   TeamCompHeaderCellSlot(this._detailedSummoner, this._version);

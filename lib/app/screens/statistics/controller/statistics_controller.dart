@@ -11,7 +11,7 @@ class StatisticsController {
 
   final error = false.obs;
   final matchListDTO = Rx<MatchListDTO>();
-  final teamStatsDTO = Rx<TeamStatsDTO>();
+  final teamStatsDTO = Rx<LocalTeamStatsDTO>();
   final progress = 0.0.toDouble().obs;
   final isVisible = true.obs;
 

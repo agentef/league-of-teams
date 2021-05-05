@@ -7,14 +7,13 @@
 
 import 'dart:core' as $core;
 
-import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'google/protobuf/timestamp.pb.dart' as $1;
 
 class MatchListResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MatchListResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.leagueofteams.summoner.controller'), createEmptyInstance: create)
-    ..p<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'matchIds', $pb.PbFieldType.P6, protoName: 'matchIds')
+    ..p<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'matchIds', $pb.PbFieldType.P3, protoName: 'matchIds')
     ..pc<DetailedSummoner>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'summoners', $pb.PbFieldType.PM, subBuilder: DetailedSummoner.create)
     ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'totalGames', $pb.PbFieldType.O3, protoName: 'totalGames')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dataDragonVersion', protoName: 'dataDragonVersion')
@@ -23,7 +22,7 @@ class MatchListResponse extends $pb.GeneratedMessage {
 
   MatchListResponse._() : super();
   factory MatchListResponse({
-    $core.Iterable<$fixnum.Int64>? matchIds,
+    $core.Iterable<$core.int>? matchIds,
     $core.Iterable<DetailedSummoner>? summoners,
     $core.int? totalGames,
     $core.String? dataDragonVersion,
@@ -65,7 +64,7 @@ class MatchListResponse extends $pb.GeneratedMessage {
   static MatchListResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$fixnum.Int64> get matchIds => $_getList(0);
+  $core.List<$core.int> get matchIds => $_getList(0);
 
   @$pb.TagNumber(2)
   $core.List<DetailedSummoner> get summoners => $_getList(1);
@@ -647,9 +646,9 @@ class MatchlistRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MatchlistRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.leagueofteams.summoner.controller'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'region')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'language')
-    ..p<$fixnum.Int64>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'matchIds', $pb.PbFieldType.P6, protoName: 'matchIds')
+    ..p<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'matchIds', $pb.PbFieldType.P3, protoName: 'matchIds')
     ..pc<DetailedSummoner>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'summoners', $pb.PbFieldType.PM, subBuilder: DetailedSummoner.create)
-    ..aInt64(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'totalGames', protoName: 'totalGames')
+    ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'totalGames', $pb.PbFieldType.O3, protoName: 'totalGames')
     ..hasRequiredFields = false
   ;
 
@@ -657,9 +656,9 @@ class MatchlistRequest extends $pb.GeneratedMessage {
   factory MatchlistRequest({
     $core.String? region,
     $core.String? language,
-    $core.Iterable<$fixnum.Int64>? matchIds,
+    $core.Iterable<$core.int>? matchIds,
     $core.Iterable<DetailedSummoner>? summoners,
-    $fixnum.Int64? totalGames,
+    $core.int? totalGames,
   }) {
     final _result = create();
     if (region != null) {
@@ -719,15 +718,15 @@ class MatchlistRequest extends $pb.GeneratedMessage {
   void clearLanguage() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.List<$fixnum.Int64> get matchIds => $_getList(2);
+  $core.List<$core.int> get matchIds => $_getList(2);
 
   @$pb.TagNumber(4)
   $core.List<DetailedSummoner> get summoners => $_getList(3);
 
   @$pb.TagNumber(5)
-  $fixnum.Int64 get totalGames => $_getI64(4);
+  $core.int get totalGames => $_getIZ(4);
   @$pb.TagNumber(5)
-  set totalGames($fixnum.Int64 v) { $_setInt64(4, v); }
+  set totalGames($core.int v) { $_setSignedInt32(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasTotalGames() => $_has(4);
   @$pb.TagNumber(5)
@@ -1115,11 +1114,11 @@ class SummonerDTO extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SummonerDTO', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'com.leagueofteams.summoner.controller'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'accountId', protoName: 'accountId')
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'profileIconId', $pb.PbFieldType.O3, protoName: 'profileIconId')
-    ..aInt64(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'revisionDate', protoName: 'revisionDate')
+    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'revisionDate', $pb.PbFieldType.O3, protoName: 'revisionDate')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'puuid')
-    ..aInt64(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'summonerLevel', protoName: 'summonerLevel')
+    ..a<$core.int>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'summonerLevel', $pb.PbFieldType.O3, protoName: 'summonerLevel')
     ..hasRequiredFields = false
   ;
 
@@ -1127,11 +1126,11 @@ class SummonerDTO extends $pb.GeneratedMessage {
   factory SummonerDTO({
     $core.String? accountId,
     $core.int? profileIconId,
-    $fixnum.Int64? revisionDate,
+    $core.int? revisionDate,
     $core.String? name,
     $core.String? id,
     $core.String? puuid,
-    $fixnum.Int64? summonerLevel,
+    $core.int? summonerLevel,
   }) {
     final _result = create();
     if (accountId != null) {
@@ -1197,9 +1196,9 @@ class SummonerDTO extends $pb.GeneratedMessage {
   void clearProfileIconId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $fixnum.Int64 get revisionDate => $_getI64(2);
+  $core.int get revisionDate => $_getIZ(2);
   @$pb.TagNumber(3)
-  set revisionDate($fixnum.Int64 v) { $_setInt64(2, v); }
+  set revisionDate($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasRevisionDate() => $_has(2);
   @$pb.TagNumber(3)
@@ -1233,9 +1232,9 @@ class SummonerDTO extends $pb.GeneratedMessage {
   void clearPuuid() => clearField(6);
 
   @$pb.TagNumber(7)
-  $fixnum.Int64 get summonerLevel => $_getI64(6);
+  $core.int get summonerLevel => $_getIZ(6);
   @$pb.TagNumber(7)
-  set summonerLevel($fixnum.Int64 v) { $_setInt64(6, v); }
+  set summonerLevel($core.int v) { $_setSignedInt32(6, v); }
   @$pb.TagNumber(7)
   $core.bool hasSummonerLevel() => $_has(6);
   @$pb.TagNumber(7)

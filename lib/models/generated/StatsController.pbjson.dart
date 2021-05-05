@@ -12,7 +12,7 @@ import 'dart:typed_data' as $typed_data;
 const MatchListResponse$json = const {
   '1': 'MatchListResponse',
   '2': const [
-    const {'1': 'matchIds', '3': 1, '4': 3, '5': 3, '10': 'matchIds'},
+    const {'1': 'matchIds', '3': 1, '4': 3, '5': 5, '10': 'matchIds'},
     const {'1': 'summoners', '3': 2, '4': 3, '5': 11, '6': '.com.leagueofteams.summoner.controller.DetailedSummoner', '10': 'summoners'},
     const {'1': 'totalGames', '3': 3, '4': 1, '5': 5, '10': 'totalGames'},
     const {'1': 'dataDragonVersion', '3': 4, '4': 1, '5': 9, '10': 'dataDragonVersion'},
@@ -20,7 +20,7 @@ const MatchListResponse$json = const {
 };
 
 /// Descriptor for `MatchListResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List matchListResponseDescriptor = $convert.base64Decode('ChFNYXRjaExpc3RSZXNwb25zZRIaCghtYXRjaElkcxgBIAMoA1IIbWF0Y2hJZHMSVQoJc3VtbW9uZXJzGAIgAygLMjcuY29tLmxlYWd1ZW9mdGVhbXMuc3VtbW9uZXIuY29udHJvbGxlci5EZXRhaWxlZFN1bW1vbmVyUglzdW1tb25lcnMSHgoKdG90YWxHYW1lcxgDIAEoBVIKdG90YWxHYW1lcxIsChFkYXRhRHJhZ29uVmVyc2lvbhgEIAEoCVIRZGF0YURyYWdvblZlcnNpb24=');
+final $typed_data.Uint8List matchListResponseDescriptor = $convert.base64Decode('ChFNYXRjaExpc3RSZXNwb25zZRIaCghtYXRjaElkcxgBIAMoBVIIbWF0Y2hJZHMSVQoJc3VtbW9uZXJzGAIgAygLMjcuY29tLmxlYWd1ZW9mdGVhbXMuc3VtbW9uZXIuY29udHJvbGxlci5EZXRhaWxlZFN1bW1vbmVyUglzdW1tb25lcnMSHgoKdG90YWxHYW1lcxgDIAEoBVIKdG90YWxHYW1lcxIsChFkYXRhRHJhZ29uVmVyc2lvbhgEIAEoCVIRZGF0YURyYWdvblZlcnNpb24=');
 @$core.Deprecated('Use compStatsResponseDescriptor instead')
 const CompStatsResponse$json = const {
   '1': 'CompStatsResponse',
@@ -93,14 +93,14 @@ const MatchlistRequest$json = const {
   '2': const [
     const {'1': 'region', '3': 1, '4': 1, '5': 9, '10': 'region'},
     const {'1': 'language', '3': 2, '4': 1, '5': 9, '10': 'language'},
-    const {'1': 'matchIds', '3': 3, '4': 3, '5': 3, '10': 'matchIds'},
+    const {'1': 'matchIds', '3': 3, '4': 3, '5': 5, '10': 'matchIds'},
     const {'1': 'summoners', '3': 4, '4': 3, '5': 11, '6': '.com.leagueofteams.summoner.controller.DetailedSummoner', '10': 'summoners'},
-    const {'1': 'totalGames', '3': 5, '4': 1, '5': 3, '10': 'totalGames'},
+    const {'1': 'totalGames', '3': 5, '4': 1, '5': 5, '10': 'totalGames'},
   ],
 };
 
 /// Descriptor for `MatchlistRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List matchlistRequestDescriptor = $convert.base64Decode('ChBNYXRjaGxpc3RSZXF1ZXN0EhYKBnJlZ2lvbhgBIAEoCVIGcmVnaW9uEhoKCGxhbmd1YWdlGAIgASgJUghsYW5ndWFnZRIaCghtYXRjaElkcxgDIAMoA1IIbWF0Y2hJZHMSVQoJc3VtbW9uZXJzGAQgAygLMjcuY29tLmxlYWd1ZW9mdGVhbXMuc3VtbW9uZXIuY29udHJvbGxlci5EZXRhaWxlZFN1bW1vbmVyUglzdW1tb25lcnMSHgoKdG90YWxHYW1lcxgFIAEoA1IKdG90YWxHYW1lcw==');
+final $typed_data.Uint8List matchlistRequestDescriptor = $convert.base64Decode('ChBNYXRjaGxpc3RSZXF1ZXN0EhYKBnJlZ2lvbhgBIAEoCVIGcmVnaW9uEhoKCGxhbmd1YWdlGAIgASgJUghsYW5ndWFnZRIaCghtYXRjaElkcxgDIAMoBVIIbWF0Y2hJZHMSVQoJc3VtbW9uZXJzGAQgAygLMjcuY29tLmxlYWd1ZW9mdGVhbXMuc3VtbW9uZXIuY29udHJvbGxlci5EZXRhaWxlZFN1bW1vbmVyUglzdW1tb25lcnMSHgoKdG90YWxHYW1lcxgFIAEoBVIKdG90YWxHYW1lcw==');
 @$core.Deprecated('Use detailedSummonerDescriptor instead')
 const DetailedSummoner$json = const {
   '1': 'DetailedSummoner',
@@ -154,13 +154,13 @@ const SummonerDTO$json = const {
   '2': const [
     const {'1': 'accountId', '3': 1, '4': 1, '5': 9, '10': 'accountId'},
     const {'1': 'profileIconId', '3': 2, '4': 1, '5': 5, '10': 'profileIconId'},
-    const {'1': 'revisionDate', '3': 3, '4': 1, '5': 3, '10': 'revisionDate'},
+    const {'1': 'revisionDate', '3': 3, '4': 1, '5': 5, '10': 'revisionDate'},
     const {'1': 'name', '3': 4, '4': 1, '5': 9, '10': 'name'},
     const {'1': 'id', '3': 5, '4': 1, '5': 9, '10': 'id'},
     const {'1': 'puuid', '3': 6, '4': 1, '5': 9, '10': 'puuid'},
-    const {'1': 'summonerLevel', '3': 7, '4': 1, '5': 3, '10': 'summonerLevel'},
+    const {'1': 'summonerLevel', '3': 7, '4': 1, '5': 5, '10': 'summonerLevel'},
   ],
 };
 
 /// Descriptor for `SummonerDTO`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List summonerDTODescriptor = $convert.base64Decode('CgtTdW1tb25lckRUTxIcCglhY2NvdW50SWQYASABKAlSCWFjY291bnRJZBIkCg1wcm9maWxlSWNvbklkGAIgASgFUg1wcm9maWxlSWNvbklkEiIKDHJldmlzaW9uRGF0ZRgDIAEoA1IMcmV2aXNpb25EYXRlEhIKBG5hbWUYBCABKAlSBG5hbWUSDgoCaWQYBSABKAlSAmlkEhQKBXB1dWlkGAYgASgJUgVwdXVpZBIkCg1zdW1tb25lckxldmVsGAcgASgDUg1zdW1tb25lckxldmVs');
+final $typed_data.Uint8List summonerDTODescriptor = $convert.base64Decode('CgtTdW1tb25lckRUTxIcCglhY2NvdW50SWQYASABKAlSCWFjY291bnRJZBIkCg1wcm9maWxlSWNvbklkGAIgASgFUg1wcm9maWxlSWNvbklkEiIKDHJldmlzaW9uRGF0ZRgDIAEoBVIMcmV2aXNpb25EYXRlEhIKBG5hbWUYBCABKAlSBG5hbWUSDgoCaWQYBSABKAlSAmlkEhQKBXB1dWlkGAYgASgJUgVwdXVpZBIkCg1zdW1tb25lckxldmVsGAcgASgFUg1zdW1tb25lckxldmVs');

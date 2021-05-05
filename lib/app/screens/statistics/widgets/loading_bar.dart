@@ -8,7 +8,7 @@ import 'package:league_team_analytics/models/response/team_stats_dto.dart';
 
 class StatisticsPageLoadingBar extends StatelessWidget {
   final double progress;
-  final TeamStatsDTO teamStatsDTO;
+  final LocalTeamStatsDTO teamStatsDTO;
   final MatchListDTO matchListDTO;
   final bool visible;
 

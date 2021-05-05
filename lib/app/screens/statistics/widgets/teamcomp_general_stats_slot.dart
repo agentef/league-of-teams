@@ -6,7 +6,7 @@ import 'package:league_team_analytics/models/response/team_stats_dto.dart';
 import 'statistics_page_text_styles.dart';
 
 class TeamCompGeneralStatsSlot extends StatelessWidget {
-  final TeamStatsDTO stats;
+  final LocalTeamStatsDTO stats;
 
   TeamCompGeneralStatsSlot(this.stats);
 

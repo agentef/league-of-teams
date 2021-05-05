@@ -6,8 +6,8 @@ import 'teamcomp_slot.dart';
 import 'teamcomp_stats_slot.dart';
 
 class TeamCompCell extends StatelessWidget {
-  final CompStats compStats;
-  final List<SummonerDTO> summoners;
+  final LocalCompStats compStats;
+  final List<LocalSummonerDTO> summoners;
   final String _version;
 
   TeamCompCell(this.compStats, this.summoners, this._version);

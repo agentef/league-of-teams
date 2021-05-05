@@ -28,7 +28,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final params = CompsParams(Get.parameters['region'], "BRAZIL", int.parse(Get.parameters['days']), null, null, null);
+    final params = CompsParams(Get.parameters['region'] ?? "null", "BRAZIL", int.parse(Get.parameters['days']) ?? -1, "null", -1, -1);
     return Obx(() {
       Widget statisticsView;
 
@@ -86,5 +86,5 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
   List<TeamCompHeaderCellSlot> getSummonerCells(MatchListDTO dto) => dto.summoners.map((it) => TeamCompHeaderCellSlot(it, dto.version)).toList();
 
-  List<TeamCompCell> getCells(TeamStatsDTO dto, String version) => dto.compStats.map((it) => TeamCompCell(it, dto.summoners, version)).toList();
+  List<TeamCompCell> getCells(LocalTeamStatsDTO dto, String version) => dto.compStats.map((it) => TeamCompCell(it, dto.summoners, version)).toList();
 }
