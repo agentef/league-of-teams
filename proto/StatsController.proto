@@ -15,7 +15,7 @@ service StatsController {
 }
 
 message MatchListResponse {
-  repeated int64 matchIds = 1;
+  repeated int32 matchIds = 1;
   repeated DetailedSummoner summoners = 2;
   int32 totalGames = 3;
   string dataDragonVersion = 4;
@@ -68,9 +68,9 @@ message GetMatchlistRequest {
 message MatchlistRequest {
   string region = 1;
   string language = 2;
-  repeated int64 matchIds = 3;
+  repeated int32 matchIds = 3;
   repeated DetailedSummoner summoners = 4;
-  int64 totalGames = 5;
+  int32 totalGames = 5;
 }
 
 message DetailedSummoner {
@@ -105,9 +105,9 @@ message MiniSeriesDTO {
 message SummonerDTO {
   string accountId = 1;
   int32 profileIconId = 2;
-  int64 revisionDate = 3;
+  int32 revisionDate = 3;
   string name = 4;
   string id = 5;
   string puuid = 6;
-  int64 summonerLevel = 7;
+  int32 summonerLevel = 7;
 }
